@@ -3,3 +3,4 @@ AoCHelper/token.txt
 *.out
 *.txt
 .DS_Store
+.vscode

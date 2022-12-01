@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# dependencies: libcurl4-openssl-dev
 DAYNAME=$2
 FULL_PATH="$1/day$DAYNAME"
 if ! [[ -d "$1/day$DAYNAME" ]]
