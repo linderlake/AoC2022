@@ -7,12 +7,15 @@ void puzzle_one(std::vector<std::string> input)
     int currentElfCalorie{0};
     for (std::string row : input)
     {
-        if (row == "") {
+        if (row == "")
+        {
             // next elf
             calories.push_back(currentElfCalorie);
             currentElfCalorie = 0;
-        } else {
-                    currentElfCalorie = currentElfCalorie + std::stoi(row);
+        }
+        else
+        {
+            currentElfCalorie = currentElfCalorie + std::stoi(row);
         }
     }
     std::sort(calories.begin(), calories.end());
@@ -27,12 +30,15 @@ void puzzle_two(std::vector<std::string> input)
     int currentElfCalorie{0};
     for (std::string row : input)
     {
-        if (row == "") {
+        if (row == "")
+        {
             // next elf
             calories.push_back(currentElfCalorie);
             currentElfCalorie = 0;
-        } else {
-                    currentElfCalorie = currentElfCalorie + std::stoi(row);
+        }
+        else
+        {
+            currentElfCalorie = currentElfCalorie + std::stoi(row);
         }
     }
     std::sort(calories.begin(), calories.end(), std::greater<int>());
@@ -42,7 +48,7 @@ void puzzle_two(std::vector<std::string> input)
 
 int main()
 {
-    std::vector<std::string> exampleInput{"", "", "", "" ,""};
+    std::vector<std::string> exampleInput{"", "", "", "", ""};
     AoCHelper a1{"2022", "1"};
     std::vector<std::string> result = a1.get_input();
     puzzle_one(result);
