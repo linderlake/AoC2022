@@ -11,22 +11,21 @@ then
 
 void puzzle_one(std::vector<std::string> input)
 {
+    int answer{};
     for (std::string row : input)
     {
 
     }
-    int answer{};
     std::cout << "Puzzle one: " << answer << std::endl;
 }
 
 void puzzle_two(std::vector<std::string> input)
 {
-
+    int answer{};
     for (std::string row : input)
     {
 
     }
-    int answer{};
     std::cout << "Puzzle two: " << answer << std::endl;
 }
 
