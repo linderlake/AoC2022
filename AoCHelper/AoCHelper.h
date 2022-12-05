@@ -13,6 +13,7 @@
 #include <curlpp/Easy.hpp>
 #include <curlpp/Options.hpp>
 #include <curlpp/Exception.hpp>
+#include "helper_functions.h"
 
 class AoCHelper
 {

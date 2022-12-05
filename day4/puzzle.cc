@@ -1,30 +1,18 @@
 #include "../AoCHelper/AoCHelper.h"
 #include <vector>
 
-std::vector<std::string> split(const std::string &s, char delimiter)
-{
-    std::vector<std::string> tokens;
-    std::string token;
-    std::istringstream tokenStream(s);
-    while (std::getline(tokenStream, token, delimiter))
-    {
-        tokens.push_back(token);
-    }
-    return tokens;
-}
-
 void puzzle_one(std::vector<std::string> input)
 {
     int answer{};
     for (std::string row : input)
     {
-        std::vector<std::string> elfs = split(row, ',');
+        std::vector<std::string> elfs = myLib::split(row, ',');
         std::string firstElf = elfs[0];
         std::string secondElf = elfs[1];
-        int firstElfStart{std::stoi(split(firstElf, '-')[0])};
-        int firstElfEnd{std::stoi(split(firstElf, '-')[1])};
-        int secondElfStart{std::stoi(split(secondElf, '-')[0])};
-        int secondElfEnd{std::stoi(split(secondElf, '-')[1])};
+        int firstElfStart{std::stoi(myLib::split(firstElf, '-')[0])};
+        int firstElfEnd{std::stoi(myLib::split(firstElf, '-')[1])};
+        int secondElfStart{std::stoi(myLib::split(secondElf, '-')[0])};
+        int secondElfEnd{std::stoi(myLib::split(secondElf, '-')[1])};
 
         if (firstElfStart <= secondElfStart && firstElfEnd >= secondElfEnd)
         {
@@ -43,13 +31,13 @@ void puzzle_two(std::vector<std::string> input)
     int answer{};
     for (std::string row : input)
     {
-        std::vector<std::string> elfs = split(row, ',');
+        std::vector<std::string> elfs = myLib::split(row, ',');
         std::string firstElf = elfs[0];
         std::string secondElf = elfs[1];
-        int firstElfStart{std::stoi(split(firstElf, '-')[0])};
-        int firstElfEnd{std::stoi(split(firstElf, '-')[1])};
-        int secondElfStart{std::stoi(split(secondElf, '-')[0])};
-        int secondElfEnd{std::stoi(split(secondElf, '-')[1])};
+        int firstElfStart{std::stoi(myLib::split(firstElf, '-')[0])};
+        int firstElfEnd{std::stoi(myLib::split(firstElf, '-')[1])};
+        int secondElfStart{std::stoi(myLib::split(secondElf, '-')[0])};
+        int secondElfEnd{std::stoi(myLib::split(secondElf, '-')[1])};
         if (firstElfStart >= secondElfStart && firstElfStart <= secondElfEnd)
         {
             answer++;
