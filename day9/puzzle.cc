@@ -166,7 +166,11 @@ void puzzle_one(std::vector<std::string> input) {
     registerMove(tail, tailMoves);
   }
   answer = tailMoves.size();
-  std::cout << "Puzzle one: " << answer << std::endl;
+  std::string coutAnswer =
+      (answer == 6494) ? std::to_string(answer)
+                       : "Error, wrong answer ❌. Should be 6494 but is " +
+                             std::to_string(answer) + "";
+  std::cout << "Puzzle one: " << coutAnswer << std::endl;
 }
 
 void puzzle_two(std::vector<std::string> input) {
@@ -188,7 +192,6 @@ void puzzle_two(std::vector<std::string> input) {
     char moveDir = myLib::split(row, ' ')[0][0];
     int movePos = std::stoi(myLib::split(row, ' ')[1]);
 
-    // move head
     for (size_t i = 0; i < movePos; i++) {
       switch (moveDir) {
         case 'R':
@@ -214,9 +217,8 @@ void puzzle_two(std::vector<std::string> input) {
         Knot* tail = knots[i];
 
         if (!isHeadAndTailTouching(*previousKnot, *tail)) {
-          while (!isHeadAndTailOnSameColumn(*previousKnot, *tail) &&
-                 !isHeadAndTailOnSameRow(*previousKnot, *tail) &&
-                 !isHeadAndTailTouching(*previousKnot, *tail)) {
+          if (!isHeadAndTailOnSameColumn(*previousKnot, *tail) &&
+              !isHeadAndTailOnSameRow(*previousKnot, *tail)) {
             // move diagonally towards previousKnot
             if (previousKnot->x > tail->x && previousKnot->y > tail->y) {
               tail->x += 1;
@@ -233,32 +235,35 @@ void puzzle_two(std::vector<std::string> input) {
             }
             if (i == 8) registerMove(knot9, tailMoves);
           }
-          if (isHeadAndTailOnSameRow(*previousKnot, *tail)) {
-            while (!isHeadAndTailTouching(*previousKnot, *tail)) {
-              if (previousKnot->x > tail->x) {
-                tail->x += 1;
-              } else {
-                tail->x -= 1;
-              }
-              if (i == 8) registerMove(knot9, tailMoves);
+          if (isHeadAndTailOnSameRow(*previousKnot, *tail) &&
+              !isHeadAndTailTouching(*previousKnot, *tail)) {
+            if (previousKnot->x > tail->x) {
+              tail->x += 1;
+            } else {
+              tail->x -= 1;
             }
-          } else if (isHeadAndTailOnSameColumn(*previousKnot, *tail)) {
-            while (!isHeadAndTailTouching(*previousKnot, *tail)) {
-              if (previousKnot->y > tail->y) {
-                tail->y += 1;
-              } else {
-                tail->y -= 1;
-              }
-              if (i == 8) registerMove(knot9, tailMoves);
+            if (i == 8) registerMove(knot9, tailMoves);
+
+          } else if (isHeadAndTailOnSameColumn(*previousKnot, *tail) &&
+                     !isHeadAndTailTouching(*previousKnot, *tail)) {
+            if (previousKnot->y > tail->y) {
+              tail->y += 1;
+            } else {
+              tail->y -= 1;
             }
+            if (i == 8) registerMove(knot9, tailMoves);
           }
         }
-        registerMove(knot9, tailMoves);
+        if (i == 8) registerMove(knot9, tailMoves);
       }
     }
   }
   answer = tailMoves.size();
-  std::cout << "Puzzle two: " << answer << std::endl;
+  std::string coutAnswer =
+      (answer == 2691) ? std::to_string(answer)
+                       : "Error, wrong answer ❌. Should be 2691 but is " +
+                             std::to_string(answer) + "";
+  std::cout << "Puzzle two: " << coutAnswer << std::endl;
 }
 
 int main() {
