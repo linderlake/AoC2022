@@ -1,4 +1,3 @@
-#include <queue>
 #include <vector>
 
 #include "../AoCHelper/AoCHelper.h"
@@ -31,8 +30,6 @@ void puzzle(std::vector<std::string> input) {
   int x{1};
   int totalCycles{0};
   int crtCycle{0};
-  std::queue<int> toBeExecuted{};
-  std::queue<int> executing{};
   std::vector<int> crtMap{};
   for (std::string row : input) {
     int calculationCycles{1};
