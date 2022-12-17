@@ -57,7 +57,7 @@ bool compare(std::string& l, std::string& r) {
 void puzzle_one(std::vector<std::string> input) {
   int answer{};
   int counter{};
-  for (int i = 0; i < input.size() - 3; i += 3) {
+  for (int i = 0; i < input.size() - 1; i += 3) {
     counter++;
     if (compare(input[i], input[i + 1])) {
       std::cout << "Left:  " << input[i] << std::endl;
